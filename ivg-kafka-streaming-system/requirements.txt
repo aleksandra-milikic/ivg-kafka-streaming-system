@@ -1,0 +1,5 @@
+kafka-python
+confluent-kafka
+psycopg2-binary
+streamlit
+pandas
