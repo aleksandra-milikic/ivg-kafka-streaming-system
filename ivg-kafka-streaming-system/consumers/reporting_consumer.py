@@ -14,7 +14,7 @@ consumer = KafkaConsumer(
 
 conn = psycopg2.connect(
     host="localhost",
-    database="ivg_postgres",
+    database="postgres",
     user="postgres",
     password="postgres"
 )
@@ -25,7 +25,7 @@ cursor = conn.cursor()
 def save_event(event):
     try:
         cursor.execute("""
-            INSERT INTO events (event_id, event_type, user_id, timestamp, payload)
+            INSERT INTO ivg_events (event_id, event_type, user_id, timestamp, payload)
             VALUES (%s, %s, %s, %s, %s)
             ON CONFLICT (event_id) DO NOTHING
         """, (

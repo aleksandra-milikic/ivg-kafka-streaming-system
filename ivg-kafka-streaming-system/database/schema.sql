@@ -1,8 +1,8 @@
-CREATE TABLE IF NOT EXISTS events (
+CREATE TABLE ivg_events (
     id SERIAL PRIMARY KEY,
-    event_id VARCHAR(255) UNIQUE,
-    event_type VARCHAR(100),
-    user_id VARCHAR(100),
-    timestamp TIMESTAMP,
-    payload JSONB
+    event_id TEXT,
+    event_type TEXT,
+    user_id TEXT,
+    artwork_id TEXT,
+    timestamp TIMESTAMP
 );
