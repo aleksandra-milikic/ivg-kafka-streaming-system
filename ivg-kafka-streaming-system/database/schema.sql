@@ -1,8 +1,14 @@
-CREATE TABLE ivg_events (
+CREATE TABLE IF NOT EXISTS ivg_events (
+    event_id TEXT PRIMARY KEY,
+    event_type TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    timestamp TIMESTAMPTZ NOT NULL,
+    payload JSONB
+);
+
+CREATE TABLE IF NOT EXISTS dlq_events (
     id SERIAL PRIMARY KEY,
-    event_id TEXT,
-    event_type TEXT,
-    user_id TEXT,
-    artwork_id TEXT,
-    timestamp TIMESTAMP
+    reason TEXT,
+    raw_event JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW()
 );
